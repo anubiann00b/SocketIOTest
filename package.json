@@ -1,0 +1,8 @@
+{
+  "name": "SocketIOTest",
+  "version": "0.0.0",
+  "description": "Testing the Socket.IO library.",
+  "dependencies": {
+    "express": "^4.8.5"
+  }
+}
