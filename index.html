@@ -8,13 +8,16 @@
       <input id="message" autocomplete="off" /><button>Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
       var socket = io();
       $('form').submit(function() {
-        socket.emit('chat-message', $('#message').val());
+        socket.emit('message', $('#message').val());
         $('#message').val('');
         return false;
+      });
+      socket.on('message', function(msg) {
+        $('#messages').append($('<li>').text(msg));
       });
     </script>
   </body>

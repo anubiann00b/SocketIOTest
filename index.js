@@ -13,8 +13,9 @@ http.listen(3000, function() {
 io.on('connection', function(socket) {
   console.log('Client connected.');
 
-  socket.on('chat-message', function(msg) {
+  socket.on('message', function(msg) {
     console.log('Received: ' + msg);
+    io.emit('message', msg);
   });
 
   socket.on('disconnect', function() {
